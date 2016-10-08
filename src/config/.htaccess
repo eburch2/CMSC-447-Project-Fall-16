@@ -1,0 +1,5 @@
+AuthUserFile ./htpasswd
+AuthName "Configuration files area"
+AuthType Digest
+
+require valid-user
