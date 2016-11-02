@@ -95,7 +95,7 @@ else {
 		}
 	}
 	// check if format-wise, the variables are valid
-	if($umbcid != "" && $username != "" && $password != "" && $firstname != "" && $lastname != "" && captcha != "") {
+	if($umbcid != "" && $username != "" && $password != "" && $firstname != "" && $lastname != "" && $captcha != "") {
 		// check if the UMBC ID is actually valid using the UMBC directory
 		if(count(getStudentInfo($umbcid)) > 0) {
 			$db1 = new DBConnection;
