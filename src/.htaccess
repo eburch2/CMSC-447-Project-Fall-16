@@ -1,0 +1,35 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule ^(.*)$ error.php?/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/~jguansi1/CMSC447/(.){0,50}$
+RewriteRule ^(.*)$ error.php?/$1 [L]
+
+ErrorDocument 400 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 401 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 402 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 403 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 404 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 405 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 406 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 407 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 408 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 409 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 410 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 411 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 412 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 413 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 414 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 415 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 416 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 417 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 500 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 501 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 502 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 503 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 504 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+ErrorDocument 505 http://userpages.umbc.edu/~jguansi1/CMSC447/error.php
+
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
