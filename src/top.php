@@ -41,7 +41,7 @@ if(count(sessionInfo()) > 0) {
 		<div class="dropdown2-content">
 			<a href="profile.php">Profile</a>
 			<a href="sellproduct.php">My Products</a>
-			<a href="">Buy / Trade Options</a>
+			<a href="listtrade.php">Trade Options</a>
 			<a href="#">My Orders</a>
 			<a href="#">Send a Message</a>
 		</div>
