@@ -70,14 +70,15 @@ else {
 	// only do database check if a proper username and password were submitted
 	if($username != "" && $password != "" && $attempts <= $maxAttempt) {
 		// data in the database is stored as hex to prevent SQL injection
-		$rows = $db1 -> select("SELECT userid, umbcid, firstname, lastname, password FROM users WHERE username = \"" . bin2hex($username). "\" AND status >= 10 LIMIT 1");
+		$rows = $db1 -> select("SELECT userid, umbcid, firstname, lastname, password, type FROM users WHERE username = \"" . bin2hex($username). "\" AND status >= 10 LIMIT 1");
 		if(count($rows[0]) > 0) {
 			$currentHashPass = hex2bin($rows[0]["password"]);
 			$currentSalt = substr($currentHashPass, 16, 16);
 			// check if the hash of the entered password matches the current hash password
 			if(encryptData($password, $currentSalt) == $currentHashPass) {
 				// login is successful -- add another layer of security
-				// update the stored hash password with a new salt
+				// prevent logged in session from multiple machines
+				// generate a new hash with a new salt
 				$newHashPass = hashPassword($password);
 				// update the password and lastaccess for the user and reset the attempt counter
 				$db1 -> query("UPDATE users SET password = \"" . bin2hex($newHashPass) . "\", lastaccess = SYSDATE() WHERE userid = " . $rows[0]["userid"]);
@@ -89,6 +90,7 @@ else {
 				$_SESSION["umbcbazaar_username"] = $username;
 				$_SESSION["umbcbazaar_password"] = $newHashPass;
 				$_SESSION["umbcbazaar_umbcid"] = $rows[0]["umbcid"];
+				$_SESSION["umbcbazaar_type"] = $rows[0]["type"];
 				$_SESSION["umbcbazaar_firstname"] = hex2bin($rows[0]["firstname"]);
 				$_SESSION["umbcbazaar_lastname"] = hex2bin($rows[0]["lastname"]);
 				$_SESSION["LAST_ACTIVITY"] = time();

@@ -130,6 +130,21 @@
 		}
 		this.value = newPhone;
 	}
+	function formatDouble() {
+			var currentVal = this.value;
+			var returnVal = "";
+			var dot = false;
+			for(var i=0; i < currentVal.length; i++) {
+				if(!isNaN(currentVal[i])) {
+					returnVal += currentVal[i];
+				}
+				else if(currentVal[i] == "." && dot == false) {
+					dot = true;
+					returnVal += currentVal[i];
+				}
+			}
+			this.value = returnVal;
+	}
 	function submitCheck() {
 		var message = "";
 		var returnValue = true;

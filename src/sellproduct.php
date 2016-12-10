@@ -33,7 +33,7 @@ if(count($userInfo) > 0) {
 			List of Products and Services<br/><br/>
 			<a href="addproduct.php?pr=1"><input class="button2" type="button" value="&nbsp;&nbsp;Add a New Product or Service&nbsp;&nbsp;"/></a>
 			<br/><br/>
-			<table border="3" align="center">
+			<table border="3" align="center" width="700">
 			<tr><td width="700" height="50" bgcolor="black" ><font color="#ffcc00">Active / Published</font><br/></td></tr>
 			<?
 			$counter = 0;
@@ -53,7 +53,7 @@ if(count($userInfo) > 0) {
 			</table>
 			<br/><br/>
 			
-			<table border="3" align="center">
+			<table border="3" align="center" width="700">
 			<tr><td width="700" height="50" bgcolor="black" ><font color="#ffcc00">Inactive / Not Published</font><br/></td></tr>
 			<?
 			$counter = 0;

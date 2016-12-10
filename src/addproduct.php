@@ -204,6 +204,7 @@ if(count($userInfo) > 0) {
 				Select image to upload<br/>
 				<input class="fileStyle" type="file" name="fileToUpload" id="fileToUpload" accept="image/*"  />
 				<script>
+				document.querySelector("#price").addEventListener("input", formatDouble);
 				function checkProduct() {
 					var message = "";
 					var returnValue = true;

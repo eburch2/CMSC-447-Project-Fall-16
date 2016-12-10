@@ -42,8 +42,8 @@ if(count(sessionInfo()) > 0) {
 			<a href="profile.php">Profile</a>
 			<a href="sellproduct.php">My Products</a>
 			<a href="listtrade.php">Trade Options</a>
-			<a href="#">My Orders</a>
-			<a href="#">Send a Message</a>
+			<a href="orders.php">My Orders</a>
+			<?php if($_SESSION["umbcbazaar_type"] >= 10) { echo '<a href="backup.php">Backup DB</a>'; } ?>
 		</div>
 	</div>
 	<a href="logout.php"><input class="button3" type="button" value="Logout" /></a>&nbsp;&nbsp;<br/><br/>

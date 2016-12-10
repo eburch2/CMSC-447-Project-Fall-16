@@ -121,14 +121,12 @@ if(count($userInfo) > 0) {
 			$query1 .= "INSERT INTO usertrade (tradeid, userid, description, hours, itemvalue)";
 			$query1 .= " VALUES (" . $tradeid . ", " . $userid . ", \"" . bin2hex($description) . "\", " . $hours . ", " . $itemvalue . ")";
 			$db1 -> query($query1);
-			mysql_query("SELECT LAST_INSERT_ID()", $db1 -> $connection);
-				$idddd =  mysql_insert_id();
-				echo $idddd;
+			$results =  mysql_insert_id($db1 -> $connection);
 			$db1 -> close();
-			$_SESSION["umbcbazaar_addTradeOptionMessage"] = "Results: " . $results . "   Trade option added."; 
+			$_SESSION["umbcbazaar_addTradeOptionMessage"] = "UserTrade ID # " . $results . "    option added."; 
 			// redirect to the seller's product page
-			//header("Location: listtrade.php");
-			//exit();
+			header("Location: listtrade.php");
+			exit();
 		}
 		else {
 			$errorMessage .= "Must be a valid tradeid with corresponding hour or item value criteria.<br/>\n";
@@ -179,6 +177,8 @@ if(count($userInfo) > 0) {
 				</table>
 			</form>
 			<script>
+				document.querySelector("#hours").addEventListener("input", formatDouble);
+				document.querySelector("#itemvalue").addEventListener("input", formatDouble);
 				function checkTrade() {
 					var message = "";
 					var returnValue = true;

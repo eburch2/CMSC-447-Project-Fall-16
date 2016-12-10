@@ -145,6 +145,11 @@ else {
 			}
 			$db1 -> close();
 		}
+		else {
+			$firstname = "";
+			$lastname = "";
+			$errorMessage .= "Not a valid UMBC ID.<br/>\n";
+		}
 	}
 	
 	
@@ -174,10 +179,10 @@ if($displayForm == true) {
 				<td>Re-enter Password</td><td><input class="loginInput" type="password" id="password1" name="password1" title="Please enter your password. At least 10 characters long. Must have at least one uppercase, lowercase, number and !@#$%" value="" placeholder="Re-enter password" maxlength="50" pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[!@#\$%]){1,})(?!.*\s).{10,50}$" required /></td>
 				</tr>
 				<tr>
-				<td>Firstname</td><td><input class="loginInput" type="text" id="firstname" name="firstname" title="Please enter your firstname. Only alphanumeric characters, space, dash, period, and a single quote (apostrophe) are allowed." value="<?php if(!empty($_POST["firstname"])){ echo $_POST["firstname"]; } ?>" placeholder=">> Disabled << Enter a valid UMBC ID" maxlength="50" pattern="^[\w][\-\s\w\d\.']*" disabled required /></td>
+				<td>Firstname</td><td><input class="loginInput" type="text" id="firstname" name="firstname" title="Please enter your firstname. Only alphanumeric characters, space, dash, period, and a single quote (apostrophe) are allowed." value="<?php if(!empty($_POST["firstname"])){ echo $_POST["firstname"]; } ?>" placeholder=">> Disabled << Enter a valid UMBC ID" maxlength="50" pattern="^[\w][\-\s\w\d\.']*" <?php if($firstname == "") {echo "disabled"; } ?> required /></td>
 				</tr>
 				<tr>
-				<td>Lastname</td><td><input class="loginInput" type="text" id="lastname" name="lastname" title="Please enter your lastname. Only alphanumeric characters, space, dash, period, and a single quote (apostrophe) are allowed." value="<?php if(!empty($_POST["lastname"])){ echo $_POST["lastname"]; } ?>" placeholder=">> Disabled << Enter a valid UMBC ID" maxlength="50" pattern="^[\w][-\s\w\d\.']*" disabled required /></td>
+				<td>Lastname</td><td><input class="loginInput" type="text" id="lastname" name="lastname" title="Please enter your lastname. Only alphanumeric characters, space, dash, period, and a single quote (apostrophe) are allowed." value="<?php if(!empty($_POST["lastname"])){ echo $_POST["lastname"]; } ?>" placeholder=">> Disabled << Enter a valid UMBC ID" maxlength="50" pattern="^[\w][-\s\w\d\.']*" <?php if($lastname == "") {echo "disabled"; } ?> required /></td>
 				</tr>
 				<tr>
 				<td>Captcha</td>

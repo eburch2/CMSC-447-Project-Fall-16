@@ -104,14 +104,17 @@ function sessionInfo() {
 	if(isset($_SESSION["umbcbazaar_username"]) && isset($_SESSION["umbcbazaar_password"])) {
 		// make sure the user credentials stored in session variables are valid
 		$db1 = new DBConnection;
-		$row = $db1 -> select("SELECT COUNT(*) FROM users WHERE username = \"" . bin2hex($_SESSION["umbcbazaar_username"]) . "\" AND password = \"" . bin2hex($_SESSION["umbcbazaar_password"]). "\" AND status >= 10 LIMIT 1");
-		if($row[0]["COUNT(*)"] > 0) {
+		$row = $db1 -> select("SELECT type FROM users WHERE username = \"" . bin2hex($_SESSION["umbcbazaar_username"]) . "\" AND password = \"" . bin2hex($_SESSION["umbcbazaar_password"]). "\" AND status >= 10 LIMIT 1");
+		if(count($row[0]) > 0) {
+			$_SESSION["umbcbazaar_type"] = $row[0]["type"];
 			array_push($returnValue, $_SESSION["umbcbazaar_userid"]);
 			array_push($returnValue, $_SESSION["umbcbazaar_username"]);
 			array_push($returnValue, $_SESSION["umbcbazaar_password"]);
 			array_push($returnValue, $_SESSION["umbcbazaar_umbcid"]);
+			array_push($returnValue, $_SESSION["umbcbazaar_type"]);
 			array_push($returnValue, $_SESSION["umbcbazaar_firstname"]);
 			array_push($returnValue, $_SESSION["umbcbazaar_lastname"]);
+
 		}
 		else {
 			// invalidate the session as they are no longer valid

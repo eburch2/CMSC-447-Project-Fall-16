@@ -17,7 +17,7 @@ class DBConnection {
         if($this -> $connection == false) {
             // Load configuration file
 			// $config = parse_ini_file("./config/databaseConfig.ini");
-			$config = array("hostname" => "studentdb-maria.gl.umbc.edu", "username" => "jguansi1", "password" => "Lupanghinirang@123", "dbname" => "jguansi1");
+			$config = array("hostname" => "studentdb-maria.gl.umbc.edu", "username" => "jguansi1", "password" => "qctagLw7jno6lTqWkDkI56T9KP3pDU@", "dbname" => "jguansi1");
 			$this -> $connection = mysql_connect($config["hostname"], $config["username"], $config["password"], true);
         }
 		// There are no try catch exception handling in PHP 4.3

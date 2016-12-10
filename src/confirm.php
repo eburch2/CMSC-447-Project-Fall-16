@@ -1,7 +1,6 @@
 <?php
 session_start();
 require("CommonMethods.php");
-require("DBConnection.php");
 
 $umbcid = "";
 $randomConfirm = "";
